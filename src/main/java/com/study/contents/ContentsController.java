@@ -223,5 +223,13 @@ public class ContentsController {
 
 		return "/contents/detail";
 	}
+	
+	@GetMapping("/contents/detail/{contentsno}")
+	public String detail2(@PathVariable("contentsno") int contentsno, Model model) {
+	    
+	   model.addAttribute("dto",service.detail(contentsno));
+	  
+	    return "/contents/detail";
+	}
 
 }

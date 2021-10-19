@@ -42,7 +42,12 @@
                    // alert(data[0].CATENO);
                    // alert(data[0].CATENAME)
                    for(var i=0;i<data.length;i++){
-                    $('#pmenu').append("<li><a href='/contents/mainlist/"+data[i].CATENO+"'>"+data[i].CATENAME+"</a></li>");
+                    $('#pmenu').append(
+                    		"<li><a href='/contents/mainlist/"
+                    		+data[i].CATENO+"'>"
+                    		+data[i].CATENAME
+                    		+"</a></li>"
+                    		);
                     }
                                      
                 },
