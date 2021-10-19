@@ -6,7 +6,7 @@
 <!DOCTYPE html> 
 <html> 
 <head>
-  <title>Bootstrap Example</title>
+  <title>공지 목록</title>
   <meta charset="utf-8">
    <script type="text/javascript">
      function read(noticeno){
