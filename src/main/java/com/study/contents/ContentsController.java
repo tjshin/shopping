@@ -212,8 +212,8 @@ public class ContentsController {
 
 	}
 
-	@GetMapping("/contents/detail/{contentsno}")
-	public String detail(@PathVariable("contentsno") int contentsno, Model model) {
+	@GetMapping("/contents/detail")
+	public String detail(int contentsno, Model model) {
 
 		ContentsDTO dto = service.detail(contentsno);
 		String detail = dto.getDetail().replaceAll("\r\n", "<br>");

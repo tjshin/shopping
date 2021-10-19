@@ -20,11 +20,33 @@
  
      }
      
-     function fileDown(filename){
-         var url = "fileDown";
-         url += "?filename="+filename;
-         location.href=url;
-        }
+     function updateC(contentsno) {
+ 		var url = "update";
+ 		url += "?contentsno="+contentsno;
+ 		url += "&col=${param.col}";
+ 		url += "&word=${param.word}";
+ 		url += "&nowPage=${param.nowPage}";
+
+ 		location.href = url;
+ 	}
+
+ 	function updateFile(contentsno) {
+ 		var url = "updateFile";
+ 		url += "?contentsno="+contentsno;
+ 		url += "&oldfile=${dto.filename}";
+ 		
+ 		location.href = url;
+ 	}
+ 	
+ 	function deleteC(contentsno) {
+ 		var url = "delete";
+ 		url += "?contentsno="+contentsno;
+ 		url += "&col=${param.col}";
+ 		url += "&word=${param.word}";
+ 		url += "&nowPage=${param.nowPage}";
+ 		
+ 		location.href = url;
+ 	}
   
   </script>
  

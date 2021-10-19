@@ -28,7 +28,6 @@
 
 	function listM() {
 		var url = "list";
-		url += "&nowPage=${param.nowPage}";
 		url += "?col=${param.col}";
 		url += "&word=${param.word}";
 		url += "&nowPage=${param.nowPage}";
