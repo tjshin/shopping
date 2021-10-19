@@ -1,22 +1,20 @@
 -- DDL
 -- DROP TABLE notice;
 CREATE TABLE notice(
-  noticeno      INT (11)                  NOT NULL AUTO_INCREMENT COMMENT '글 번호',
-  title         VARCHAR(300)              NOT NULL COMMENT '제목',
-  content       TEXT                      NOT NULL COMMENT '내용',
-  wname         VARCHAR (20)              NOT NULL COMMENT '작성자',
-  passwd        VARCHAR (20)              NULL COMMENT '패스워드',
-  cnt           SMALLINT(10)              NOT NULL DEFAULT '0' COMMENT '조회수',
-  rdate         DATETIME                  NOT NULL COMMENT '등록일',
+  noticeno      NUMBER (11)     NOT NULL,
+  title         VARCHAR2(300)   NOT NULL,
+  content       CLOB            NOT NULL,
+  wname         VARCHAR2 (20)   NOT NULL,
+  passwd        VARCHAR2 (20)   NULL,
+  cnt           NUMBER(10)      DEFAULT '0' NOT NULL,
+  rdate         DATE            NOT NULL,
   PRIMARY KEY (noticeno)  
 );
 -- 등록
-INSERT INTO notice(title, content, wname, passwd, cnt, rdate)
-VALUES('spring 시즌 접수 안내 1', '10% 할인 실시!', '왕눈이', '1234', 0, NOW());
-INSERT INTO notice(title, content, wname, passwd, cnt, rdate)
-VALUES('spring 시즌 접수 안내 2', '10% 할인 실시!', '아로미', '1234', 0, NOW());
-INSERT INTO notice(title, content, wname, passwd, cnt, rdate)
-VALUES('spring 시즌 접수 안내 3', '10% 할인 실시!', '투투투', '1234', 0, now());
+insert into notice(noticeno, title, content, wname, passwd, cnt, rdate)
+VALUES((select nvl(max(noticeno), 0) + 1 from notice),
+'spring 시즌 접수 안내 1', '10% 할인 실시!', '왕눈이', '1234', 0, sysdate);
+
 -- 목록
 SELECT noticeno, title, content, wname, passwd, cnt, rdate
 FROM notice
