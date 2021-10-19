@@ -1,6 +1,5 @@
 package com.study.notice;
 
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -71,12 +70,13 @@ public class NoticeController {
 
 		// DB에서 가져올 순번-----------------
 		int sno = ((nowPage - 1) * recordPerPage);
-		// int eno = nowPage * recordPerPage;
+		int eno = nowPage * recordPerPage;
 
 		Map map = new HashMap();
 		map.put("col", col);
 		map.put("word", word);
 		map.put("sno", sno);
+		map.put("eno", eno);
 		map.put("cnt", recordPerPage);
 
 		int total = service.total(map);
