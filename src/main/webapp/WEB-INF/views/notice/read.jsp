@@ -12,19 +12,26 @@
 	function updateM() {
 		var url = "update";
 		url += "?noticeno=${dto.noticeno}";
+		url += "&col=${param.col}";
+		url += "&word=${param.word}";
+		url += "&nowPage=${param.nowPage}";
 		location.href = url;
 	}
 	function deleteM() {
 		var url = "delete";
 		url += "?noticeno=${dto.noticeno}";
+		url += "&col=${param.col}";
+		url += "&word=${param.word}";
+		url += "&nowPage=${param.nowPage}";
 		location.href = url;
 	}
 
 	function listM() {
 		var url = "list";
-		url += "?nowPage=${param.nowPage}";
-		url += "&col=${param.col}";
+		url += "&nowPage=${param.nowPage}";
+		url += "?col=${param.col}";
 		url += "&word=${param.word}";
+		url += "&nowPage=${param.nowPage}";
 		location.href = url;
 	}
 </script>

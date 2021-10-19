@@ -18,6 +18,12 @@
       action="./delete"
       method="post"
       >
+      
+      <input type="hidden" name='noticeno' value='${param.noticeno}'>
+      <input type='hidden' name="col" value="${param.col}">
+      <input type='hidden' name="word" value="${param.word}">
+      <input type='hidden' name="nowPage" value="${param.nowPage}">
+      
   <input type="hidden" name="noticeno" value="${param.noticeno}">
   <div class="form-group">
     <label class="control-label col-sm-2" for="passwd">비밀번호</label>

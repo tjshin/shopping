@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.study.utility.Utility;
 
@@ -121,7 +122,7 @@ public class NoticeController {
 	}
 
 	@PostMapping("/notice/update")
-	public String update(NoticeDTO dto) {
+	public String update(NoticeDTO dto, RedirectAttributes redirect, HttpServletRequest request) {
 
 		Map map = new HashMap();
 		map.put("noticeno", dto.getNoticeno());
@@ -137,6 +138,9 @@ public class NoticeController {
 		if (pcnt != 1) {
 			return "./passwdError";
 		} else if (cnt == 1) {
+			redirect.addAttribute("col", request.getParameter("col"));
+			redirect.addAttribute("word", request.getParameter("word"));
+			redirect.addAttribute("nowPage", request.getParameter("nowPage"));
 			return "redirect:./list";
 		} else {
 			return "./error";
@@ -151,7 +155,7 @@ public class NoticeController {
 	}
 
 	@PostMapping("/notice/delete")
-	public String delete(HttpServletRequest request, int noticeno, String passwd) {
+	public String delete(HttpServletRequest request, int noticeno, String passwd, RedirectAttributes redirect) {
 
 		Map map = new HashMap();
 		map.put("noticeno", noticeno);
@@ -167,6 +171,9 @@ public class NoticeController {
 		if (pcnt != 1) {
 			return "./passwdError";
 		} else if (cnt == 1) {
+			redirect.addAttribute("col", request.getParameter("col"));
+			redirect.addAttribute("word", request.getParameter("word"));
+			redirect.addAttribute("nowPage", request.getParameter("nowPage"));
 			return "redirect:./list";
 		} else {
 			return "./error";
