@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="/create" extends="main">
+		<put-attribute name="title" value="공지 생성"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/createForm.jsp" />
+	</definition>
+	<definition name="/list" extends="main">
+		<put-attribute name="title" value="공지 목록"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/list.jsp" />
+	</definition>
+	<definition name="/read" extends="main">
+		<put-attribute name="title" value="공지 조회"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/read.jsp" />
+	</definition>
+	<definition name="/update" extends="main">
+		<put-attribute name="title" value="공지 수정"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/updateForm.jsp" />
+	</definition>
+	<definition name="/delete" extends="main">
+		<put-attribute name="title" value="공지 삭제"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/deleteForm.jsp" />
+	</definition>
+
+</tiles-definitions>
