@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,9 +52,11 @@
 
 		</div>
 		<div>
+			<c:if test="${not empty sessionScope.id and sessionScope.grade == 'A'}">
 			<button type="button" class="btn" onclick="location.href='./create'">등록</button>
 			<button type="button" class="btn" onclick="updateM()">수정</button>
 			<button type="button" class="btn" onclick="deleteM()">삭제</button>
+			</c:if>
 			<button type="button" class="btn" onclick="listM()">목록</button>
 		</div>
 	</div>
