@@ -2,14 +2,14 @@
 <!DOCTYPE html> 
 <html> 
 <head>
-  <title>수정</title>
+  <title>공지 수정</title>
   <meta charset="utf-8">
  
 </head>
 <body> 
  
 <div class="container">
-<h1 class="col-sm-offset-2 col-sm-10">게시판 수정</h1>
+<h1 class="col-sm-offset-2 col-sm-10">공지 수정</h1>
 <form class="form-horizontal" 
       action="./update"
       method="post"

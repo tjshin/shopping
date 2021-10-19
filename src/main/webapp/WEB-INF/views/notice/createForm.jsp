@@ -3,7 +3,7 @@
 <!DOCTYPE html> 
 <html> 
 <head>
-  <title>notice</title>
+  <title>공지 생성</title>
   <meta charset="utf-8">
   <script type="text/JavaScript">
         

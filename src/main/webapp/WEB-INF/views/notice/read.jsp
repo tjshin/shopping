@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>조회</title>
+<title>공지 조회</title>
 <meta charset="utf-8">
 
 <script type="text/javascript">
@@ -31,7 +31,7 @@
 <body>
 	<div class="container">
 
-		<h2>조회</h2>
+		<h2>공지 조회</h2>
 		<div class="panel panel-default">
 			<div class="panel-heading">작성자</div>
 			<div class="panel-body">${dto.wname}</div>

@@ -2,7 +2,7 @@
 <!DOCTYPE html> 
 <html> 
 <head>
-  <title>삭제</title>
+  <title>공지 삭제</title>
   <meta charset="utf-8">
   <style type="text/css">
   #red{
@@ -13,7 +13,7 @@
 <body> 
 <div class="container">
  
-<h2 class="col-sm-offset-2 col-sm-10">삭제</h2>
+<h2 class="col-sm-offset-2 col-sm-10">공지 삭제</h2>
 <form class="form-horizontal" 
       action="./delete"
       method="post"
