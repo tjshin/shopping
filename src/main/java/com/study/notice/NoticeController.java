@@ -1,10 +1,8 @@
 package com.study.notice;
 
-import java.text.DateFormat;
-import java.util.Date;
+
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,35 +24,35 @@ public class NoticeController {
 	@Qualifier("com.study.notice.NoticeServiceImpl")
 	private NoticeService service;
 
-	@GetMapping("/")
-	public String home(Locale locale, Model model) {
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+//	@GetMapping("/")
+//	public String home(Locale locale, Model model) {
+//		Date date = new Date();
+//		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+//
+//		String formattedDate = dateFormat.format(date);
+//
+//		model.addAttribute("serverTime", formattedDate);
+//		return "/home";
+//	}
 
-		String formattedDate = dateFormat.format(date);
-
-		model.addAttribute("serverTime", formattedDate);
-		return "/home";
-	}
-
-	@GetMapping("create")
+	@GetMapping("/notice/create")
 	public String create() {
 
-		return "/create";
+		return "/notice/create";
 	}
 
-	@PostMapping("create")
+	@PostMapping("/notice/create")
 	public String create(NoticeDTO dto) {
 
 		if (service.create(dto) == 1) {
-			return "redirect:list";
+			return "redirect:./list";
 		} else {
-			return "/error";
+			return "/notice/error";
 		}
 
 	}
 
-	@RequestMapping("list")
+	@RequestMapping("/notice/list")
 	public String list(HttpServletRequest request) {
 		// 검색관련------------------------
 		String col = Utility.checkNull(request.getParameter("col"));
@@ -95,10 +93,10 @@ public class NoticeController {
 		request.setAttribute("paging", paging);
 
 		// view페이지 리턴
-		return "/list";
+		return "/notice/list";
 	}
 
-	@GetMapping("/read")
+	@GetMapping("/notice/read")
 	public String read(int noticeno, Model model) {
 
 		service.upCnt(noticeno);
@@ -111,18 +109,18 @@ public class NoticeController {
 
 		model.addAttribute("dto", dto);
 
-		return "/read";
+		return "/notice/read";
 	}
 
-	@GetMapping("update")
+	@GetMapping("/notice/update")
 	public String update(int noticeno, Model model) {
 
 		model.addAttribute("dto", service.read(noticeno));
 
-		return "/update";
+		return "/notice/update";
 	}
 
-	@PostMapping("update")
+	@PostMapping("/notice/update")
 	public String update(NoticeDTO dto) {
 
 		Map map = new HashMap();
@@ -146,13 +144,13 @@ public class NoticeController {
 
 	}
 
-	@GetMapping("/delete")
+	@GetMapping("/notice/delete")
 	public String delete() {
 
-		return "/delete";
+		return "/notice/delete";
 	}
 
-	@PostMapping("/delete")
+	@PostMapping("/notice/delete")
 	public String delete(HttpServletRequest request, int noticeno, String passwd) {
 
 		Map map = new HashMap();
