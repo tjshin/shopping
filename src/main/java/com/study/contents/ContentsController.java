@@ -211,13 +211,17 @@ public class ContentsController {
 		return "/contents/mainlist";
 
 	}
-	
+
 	@GetMapping("/contents/detail/{contentsno}")
 	public String detail(@PathVariable("contentsno") int contentsno, Model model) {
-	    
-	   model.addAttribute("dto",service.detail(contentsno));
-	  
-	    return "/contents/detail";
+
+		ContentsDTO dto = service.detail(contentsno);
+		String detail = dto.getDetail().replaceAll("\r\n", "<br>");
+		dto.setDetail(detail);
+		
+		model.addAttribute("dto", dto);
+
+		return "/contents/detail";
 	}
 
 }
