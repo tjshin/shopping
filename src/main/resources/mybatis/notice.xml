@@ -40,8 +40,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <!-- 등록 -->
   <insert id="create" parameterType="com.study.notice.NoticeDTO">
-    INSERT INTO notice(title, content, wname, passwd, cnt, rdate)
-    VALUES(#{title}, #{content}, #{wname}, #{passwd}, 0, NOW())
+    INSERT INTO notice(noticeno, title, content, wname, passwd, cnt, rdate)
+    values((select nvl(max(noticeno),0)+1 as noticeno from notice),
+    #{title}, #{content}, #{wname}, #{passwd}, 0, sysdate)
   </insert> 
 <!-- 목록 -->
   <select id="list" parameterType="Map" resultType="com.study.notice.NoticeDTO">
@@ -49,24 +50,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     FROM notice
     <where>
               <choose>
-                  <when test="col=='wname'">
-                      wname like CONCAT('%',#{word},'%')
-                  </when>
-                  <when test="col=='title'">
-                      title like CONCAT('%',#{word},'%')
-                  </when>
-                  <when test="col=='content'">
-                      content like CONCAT('%',#{word},'%')
-                  </when>
-                  <when test="col=='title_content'">
-                     title like CONCAT('%',#{word},'%')
-                     or
-                     content like CONCAT('%',#{word},'%')
-                  </when>
-              </choose>
+				<when test="col=='wname'">
+					wname like '%'||#{word}||'%'
+				</when>
+				<when test="col=='title'">
+					title like '%'||#{word}||'%'
+				</when>
+				<when test="col=='content'">
+					content like '%'||#{word}||'%'
+				</when>
+				<when test="col=='title_content'">
+					title like '%'||#{word}||'%'
+					or
+					content like '%'||#{word}||'%'
+				</when>
+			</choose>
            </where>
     ORDER BY noticeno DESC
-    limit #{sno} , #{cnt}
+    <![CDATA[where r >= #{sno} and r <= #{eno}]]> 
   </select>
 <!--total-->
   <select id="total" resultType="int" parameterType="Map">
@@ -74,19 +75,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     <where>
               <choose>
                   <when test="col=='wname'">
-                      wname like CONCAT('%',#{word},'%')
-                  </when>
-                  <when test="col=='title'">
-                      title like CONCAT('%',#{word},'%')
-                  </when>
-                  <when test="col=='content'">
-                      content like CONCAT('%',#{word},'%')
-                  </when>
-                  <when test="col=='title_content'">
-                     title like CONCAT('%',#{word},'%')
-                     or
-                     content like CONCAT('%',#{word},'%')
-                  </when>
+					wname like '%'||#{word}||'%'
+				</when>
+				<when test="col=='title'">
+					title like '%'||#{word}||'%'
+				</when>
+				<when test="col=='content'">
+					content like '%'||#{word}||'%'
+				</when>
+				<when test="col=='title_content'">
+					title like '%'||#{word}||'%'
+					or
+					content like '%'||#{word}||'%'
+				</when>
               </choose>
            </where>
   </select>
