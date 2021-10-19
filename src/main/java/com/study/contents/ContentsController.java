@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.study.utility.Utility;
 
@@ -230,6 +231,35 @@ public class ContentsController {
 	   model.addAttribute("dto",service.detail(contentsno));
 	  
 	    return "/contents/detail";
+	}
+	
+			
+	@GetMapping("/contents/delete/{contentsno}")
+	public String delete(@PathVariable("contentsno") int contentsno) {
+
+		return "/contents/delete";
+	}
+
+	@PostMapping("/contents/delete")
+	public String delete(HttpServletRequest request, int contentsno, String passwd, RedirectAttributes redirect) {
+
+		Map map = new HashMap();
+		map.put("contentsno", contentsno);
+		
+		int cnt = 0;
+		
+			cnt = service.delete(contentsno);
+		
+
+		if (cnt == 1) {
+			redirect.addAttribute("col", request.getParameter("col"));
+			redirect.addAttribute("word", request.getParameter("word"));
+			redirect.addAttribute("nowPage", request.getParameter("nowPage"));
+			return "redirect:./list";
+		} else {
+			return "./error";
+		}
+
 	}
 
 }

@@ -119,5 +119,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{cateno},#{pname}, #{price}, #{filename}, #{detail},
 		sysdate, #{stock})
 	</insert>
+	
+	<delete id="delete" parameterType="int">
+		delete from contents
+		where contentsno = #{contensno}
+	</delete>
+	
 
 </mapper>
