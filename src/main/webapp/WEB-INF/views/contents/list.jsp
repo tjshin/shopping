@@ -30,13 +30,13 @@
  		location.href = url;
  	}
 
- 	function updateFile(contentsno) {
+ 	function updateFile(contentsno, filename) {
  		var url = "updateFile";
  		url += "?contentsno="+contentsno;
  		url += "&col=${param.col}";
  		url += "&word=${param.word}";
  		url += "&nowPage=${param.nowPage}";
- 		url += "&oldfile=${dto.filename}";
+ 		url += "&oldfile="+filename;
  		
  		location.href = url;
  	}
@@ -128,7 +128,7 @@
           <span class="glyphicon glyphicon-trash"></span>
         </a>
         /
-        <a href="javascript:updateFile('${dto.contentsno}')">
+        <a href="javascript:updateFile('${dto.contentsno}', '${dto.filename}')">
           <span class="glyphicon glyphicon-picture"></span>
         </a>     
     </td>
