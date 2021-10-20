@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.cart.CartMapper">
+
+	<select id="list" parameterType="String"
+		resultType="com.study.cart.JoinDTO">
+		select m.id, m.mname, m.tel, m.email, m.zipcode,
+		m.address1, m.address2, m.cartno, o.orderno,
+		o.contentsno, o.odate, o.quantity, o.total,
+		o.payment, o.pname
+		from member m inner join cart c 
+		on m.id = c.id
+		inner join orders o
+		on c.id = o.id
+		where m.id = #{id}
+	</select>
+
+</mapper>
