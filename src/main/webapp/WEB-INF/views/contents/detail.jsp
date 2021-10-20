@@ -35,6 +35,7 @@
 		url += "&col=${param.col}";
 		url += "&word=${param.word}";
 		url += "&nowPage=${param.nowPage}";
+		url += "&oldfile=${dto.filename}";
 		
 		location.href = url;
 	}

@@ -41,12 +41,13 @@
  		location.href = url;
  	}
  	
- 	function deleteC(contentsno) {
+ 	function deleteC(contentsno, filename) {
  		var url = "delete";
  		url += "?contentsno="+contentsno;
  		url += "&col=${param.col}";
  		url += "&word=${param.word}";
  		url += "&nowPage=${param.nowPage}";
+ 		url += "&oldfile="+filename;
  		
  		location.href = url;
  	}
@@ -124,7 +125,7 @@
           <span class="glyphicon glyphicon-edit"></span>
         </a>
         /
-        <a href="./delete/${dto.contentsno }">
+        <a href="javascript:deleteC('${dto.contentsno}', '${dto.filename}')">
           <span class="glyphicon glyphicon-trash"></span>
         </a>
         /
