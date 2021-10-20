@@ -40,3 +40,6 @@ DELETE FROM notice
 WHERE noticeno=3;
  
 SELECT * FROM notice;
+
+--열 삭제(비번 필요없더라)
+alter table notice drop column passwd;

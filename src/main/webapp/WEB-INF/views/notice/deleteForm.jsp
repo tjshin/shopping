@@ -2,7 +2,7 @@
 <!DOCTYPE html> 
 <html> 
 <head>
-  <title>상품 정보 삭제</title>
+  <title>공지 삭제</title>
   <meta charset="utf-8">
   <style type="text/css">
   #red{
@@ -13,7 +13,7 @@
 <body> 
 <div class="container">
  
-<h2 class="col-sm-offset-2 col-sm-10">상품 정보 삭제</h2>
+<h2 class="col-sm-offset-2 col-sm-10">공지 삭제</h2>
 <form class="form-horizontal" 
       action="./delete"
       method="post"
@@ -25,12 +25,7 @@
       <input type='hidden' name="nowPage" value="${param.nowPage}">
       
   <input type="hidden" name="noticeno" value="${param.noticeno}">
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="passwd">비밀번호</label>
-    <div class="col-sm-6">
-      <input type="password" name="passwd" id="passwd" class="form-control">
-    </div>
-  </div>
+  
   
   <p id="red" class="col-sm-offset-2 col-sm-6">삭제하면 복구할 수 없습니다</p>
   

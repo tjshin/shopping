@@ -35,17 +35,17 @@ public class NoticeController {
 //		return "/home";
 //	}
 
-	@GetMapping("/notice/create")
+	@GetMapping("/notice/admin/create")
 	public String create() {
 
-		return "/notice/create";
+		return "/notice/admin/create";
 	}
 
-	@PostMapping("/notice/create")
+	@PostMapping("/notice/admin/create")
 	public String create(NoticeDTO dto) {
 
 		if (service.create(dto) == 1) {
-			return "redirect:./list";
+			return "redirect:../list";
 		} else {
 			return "/notice/error";
 		}
@@ -113,70 +113,46 @@ public class NoticeController {
 		return "/notice/read";
 	}
 
-	@GetMapping("/notice/update")
+	@GetMapping("/notice/admin/update")
 	public String update(int noticeno, Model model) {
 
 		model.addAttribute("dto", service.read(noticeno));
 
-		return "/notice/update";
+		return "/notice/admin/update";
 	}
 
-	@PostMapping("/notice/update")
+	@PostMapping("/notice/admin/update")
 	public String update(NoticeDTO dto, RedirectAttributes redirect, HttpServletRequest request) {
 
-		Map map = new HashMap();
-		map.put("noticeno", dto.getNoticeno());
-		map.put("passwd", dto.getPasswd());
-		int pcnt = service.passwd(map);
-
-		int cnt = 0;
-		if (pcnt == 1) {
-
-			cnt = service.update(dto);
-		}
-
-		if (pcnt != 1) {
-			return "./passwdError";
-		} else if (cnt == 1) {
+		int cnt = service.update(dto);
+		if (cnt == 1) {
 			redirect.addAttribute("col", request.getParameter("col"));
 			redirect.addAttribute("word", request.getParameter("word"));
 			redirect.addAttribute("nowPage", request.getParameter("nowPage"));
-			return "redirect:./list";
+			return "redirect:../list";
 		} else {
-			return "./error";
+			return "../error";
 		}
 
 	}
 
-	@GetMapping("/notice/delete")
+	@GetMapping("/notice/admin/delete")
 	public String delete() {
 
-		return "/notice/delete";
+		return "/notice/admin/delete";
 	}
 
-	@PostMapping("/notice/delete")
+	@PostMapping("/notice/admin/delete")
 	public String delete(HttpServletRequest request, int noticeno, String passwd, RedirectAttributes redirect) {
 
-		Map map = new HashMap();
-		map.put("noticeno", noticeno);
-		map.put("passwd", passwd);
-		int pcnt = service.passwd(map);
-
-		int cnt = 0;
-		if (pcnt == 1) {
-
-			cnt = service.delete(noticeno);
-		}
-
-		if (pcnt != 1) {
-			return "./passwdError";
-		} else if (cnt == 1) {
+		int cnt = service.delete(noticeno);
+		if (cnt == 1) {
 			redirect.addAttribute("col", request.getParameter("col"));
 			redirect.addAttribute("word", request.getParameter("word"));
 			redirect.addAttribute("nowPage", request.getParameter("nowPage"));
-			return "redirect:./list";
+			return "redirect:../list";
 		} else {
-			return "./error";
+			return "../error";
 		}
 
 	}

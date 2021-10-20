@@ -13,16 +13,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 조회 -->
 	<select id="read" resultType="com.study.notice.NoticeDTO">
-		SELECT noticeno, title, content, wname, passwd, cnt, rdate
+		SELECT noticeno, title, content, wname, cnt, rdate
 		FROM notice
 		WHERE noticeno=#{noticeno}
-	</select>
-
-	<!-- 패스워드 검사 -->
-	<select id="passwd" resultType="int" parameterType="HashMap">
-		SELECT COUNT(*) AS cnt
-		FROM notice
-		WHERE noticeno=#{noticeno} AND passwd=#{passwd}
 	</select>
 
 	<!-- 수정 -->
@@ -40,9 +33,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	<!-- 등록 -->
 	<insert id="create" parameterType="com.study.notice.NoticeDTO">
-		INSERT INTO notice(noticeno, title, content, wname, passwd, cnt, rdate)
+		INSERT INTO notice(noticeno, title, content, wname, cnt, rdate)
 		values((select nvl(max(noticeno),0)+1 as noticeno from notice),
-		#{title}, #{content}, #{wname}, #{passwd}, 0, sysdate)
+		#{title}, #{content}, #{wname}, 0, sysdate)
 	</insert>
 	<!-- 목록 -->
 	<select id="list" parameterType="Map"

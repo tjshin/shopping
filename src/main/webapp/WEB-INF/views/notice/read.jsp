@@ -10,7 +10,7 @@
 
 <script type="text/javascript">
 	function updateM() {
-		var url = "update";
+		var url = "./admin/update";
 		url += "?noticeno=${dto.noticeno}";
 		url += "&col=${param.col}";
 		url += "&word=${param.word}";
@@ -18,7 +18,7 @@
 		location.href = url;
 	}
 	function deleteM() {
-		var url = "delete";
+		var url = "./admin/delete";
 		url += "?noticeno=${dto.noticeno}";
 		url += "&col=${param.col}";
 		url += "&word=${param.word}";
@@ -59,7 +59,7 @@
 		</div>
 		<div>
 			<c:if test="${not empty sessionScope.id and sessionScope.grade == 'A'}">
-			<button type="button" class="btn" onclick="location.href='./create'">등록</button>
+			<button type="button" class="btn" onclick="location.href='./admin/create'">등록</button>
 			<button type="button" class="btn" onclick="updateM()">수정</button>
 			<button type="button" class="btn" onclick="deleteM()">삭제</button>
 			</c:if>

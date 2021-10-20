@@ -36,12 +36,6 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public int passwd(Map map) {
-		// TODO Auto-generated method stub
-		return mapper.passwd(map);
-	}
-
-	@Override
 	public int update(NoticeDTO noticeDTO) {
 		// TODO Auto-generated method stub
 		return mapper.update(noticeDTO);

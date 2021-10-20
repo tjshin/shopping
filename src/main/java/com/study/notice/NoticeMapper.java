@@ -15,8 +15,6 @@ public interface NoticeMapper {
 
 	NoticeDTO read(int noticeno);
 
-	int passwd(Map map);
-
 	int update(NoticeDTO noticeDTO);
 
 	int delete(int noticeno);
