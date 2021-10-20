@@ -117,7 +117,7 @@
     <td>${dto.price}</td>
     <td>${dto.rdate}</td>
     <td>${dto.stock}</td>
-    <td> <a href="./update/${dto.contentsno }">
+    <td> <a href="javascript:updateC('${dto.contentsno}')">
           <span class="glyphicon glyphicon-edit"></span>
         </a>
         /

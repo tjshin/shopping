@@ -90,12 +90,12 @@
 <!--  <button class="btn btn-default" onclick="updateC()">상품 정보 수정</button> -->
 <!--  <button class="btn btn-default" onclick="updateFile()">사진수정</button> -->
 <!--  <button class="btn btn-default" onclick="deleteC()">상품 삭제</button> -->
- <button class="btn btn-default" onclick="location.href='./update/${param.contentsno }'">상품 정보 수정</button>
+ <button class="btn btn-default" onclick="updateC()">상품 정보 수정</button>
  <button class="btn btn-default" onclick="location.href='./updateFile/${param.contentsno }/${dto.filename}'">사진수정</button>
  <button class="btn btn-default" onclick="location.href='./delete/${param.contentsno }'">상품 삭제</button>
  <button class="btn btn-default" onclick="listC()">상품 목록(관리자)</button>
  </c:if>
- <button class="btn btn-default" onclick="location.href='./${dto.cateno }'">상품 목록</button>
+ <button class="btn btn-default" onclick="location.href='./mainlist/${dto.cateno }'">상품 목록</button>
  </div>
  
  <br>

@@ -109,10 +109,13 @@ public class ContentsController {
 	}
 
 	@PostMapping("/contents/update")
-	public String update(ContentsDTO dto) {
+	public String update(ContentsDTO dto, HttpServletRequest request, RedirectAttributes redirect) throws IOException {
 		int cnt = service.update(dto);
 
 		if (cnt == 1) {
+			redirect.addAttribute("col", request.getParameter("col"));
+			redirect.addAttribute("word", request.getParameter("word"));
+			redirect.addAttribute("nowPage", request.getParameter("nowPage"));
 			return "redirect:./list";
 		} else {
 			return "error";
@@ -128,6 +131,15 @@ public class ContentsController {
 
 		return "/contents/update";
 
+	}
+	
+	@GetMapping("/contents/update")
+	public String update2(int contentsno, Model model) {
+		ContentsDTO dto = service.detail(contentsno);
+
+		model.addAttribute("dto", dto);
+
+		return "/contents/update";
 	}
 
 	@PostMapping("/contents/create")
@@ -233,9 +245,6 @@ public class ContentsController {
 
 	@PostMapping("/contents/delete")
 	public String delete(HttpServletRequest request, int contentsno, String passwd, RedirectAttributes redirect) {
-
-		Map map = new HashMap();
-		map.put("contentsno", contentsno);
 
 		int cnt = 0;
 

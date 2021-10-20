@@ -43,7 +43,10 @@
       action="/contents/update"
       method="post"
       onsubmit="return checkIn(this)">
-  <input type="hidden" name="contentsno" value="${contentsno}">
+  <input type="hidden" name="contentsno" value="${dto.contentsno}">
+  <input type='hidden' name="col" value="${param.col}">
+  <input type='hidden' name="word" value="${param.word}">
+  <input type='hidden' name="nowPage" value="${param.nowPage}">
   <div class="form-group">
     <label class="control-label col-sm-2" for="cateno">상품분류</label>
     <div class="col-sm-6">
