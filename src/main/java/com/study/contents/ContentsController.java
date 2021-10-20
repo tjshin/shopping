@@ -32,7 +32,8 @@ public class ContentsController {
 	private ContentsService service;
 
 	@PostMapping("/contents/updateFile")
-	public String updateFile(MultipartFile filenameMF, String oldfile, int contentsno, HttpServletRequest request)
+	public String updateFile(MultipartFile filenameMF, String oldfile, int contentsno,
+			HttpServletRequest request, RedirectAttributes redirect)
 			throws IOException {
 		String basePath = new ClassPathResource("/static/pstorage").getFile().getAbsolutePath();
 
@@ -49,6 +50,9 @@ public class ContentsController {
 		int cnt = service.updateFile(map);
 
 		if (cnt == 1) {
+			redirect.addAttribute("col", request.getParameter("col"));
+			redirect.addAttribute("word", request.getParameter("word"));
+			redirect.addAttribute("nowPage", request.getParameter("nowPage"));
 			return "redirect:./list";
 		} else {
 			return "./error";
@@ -61,6 +65,15 @@ public class ContentsController {
 		model.addAttribute("contentsno", contentsno);
 		model.addAttribute("oldfile", oldfile);
 
+		return "/contents/updateFile";
+	}
+	
+	@GetMapping("/contents/updateFile")
+	public String updateFileForm2(int contentsno, String oldfile, Model model) {
+		
+		model.addAttribute("contentsno", contentsno);
+		model.addAttribute("oldfile", oldfile);
+		
 		return "/contents/updateFile";
 	}
 
@@ -122,19 +135,9 @@ public class ContentsController {
 		}
 	}
 
-	@GetMapping("/contents/update/{contentsno}")
-	public String update(@PathVariable("contentsno") int contentsno, Model model) {
-
-		ContentsDTO dto = service.detail(contentsno);
-
-		model.addAttribute("dto", dto);
-
-		return "/contents/update";
-
-	}
-	
 	@GetMapping("/contents/update")
-	public String update2(int contentsno, Model model) {
+	public String update(int contentsno, Model model) {
+		
 		ContentsDTO dto = service.detail(contentsno);
 
 		model.addAttribute("dto", dto);

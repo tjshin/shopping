@@ -16,7 +16,10 @@
         enctype="multipart/form-data"
         >   
     <input type="hidden" name="oldfile" value="${oldfile}">    
-    <input type="hidden" name="contentsno" value="${contentsno}">    
+    <input type="hidden" name="contentsno" value="${contentsno}">
+    <input type='hidden' name="col" value="${param.col}">
+  	<input type='hidden' name="word" value="${param.word}">
+  	<input type='hidden' name="nowPage" value="${param.nowPage}">    
         
     <div class="form-group">
       <label class="control-label col-sm-2" for="oldfile">원본파일</label>
