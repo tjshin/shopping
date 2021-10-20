@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <script type="text/javascript">
      function detail(contentsno){
-       var url = "detail";
+       var url = "../../contents/detail";
        url += "?contentsno="+contentsno;
        url += "&col=${col}";
        url += "&word=${word}";

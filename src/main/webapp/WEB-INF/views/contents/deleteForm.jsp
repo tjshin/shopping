@@ -14,7 +14,7 @@
 	<div class="container">
 
 		<h2 class="col-sm-offset-2 col-sm-10">상품 삭제</h2>
-		<form class="form-horizontal" action="/contents/delete" method="post">
+		<form class="form-horizontal" action="/admin/contents/delete" method="post">
 			<input type="hidden" name="contentsno" value="${param.contentsno}">
 			<input type='hidden' name="col" value="${param.col}">
 			<input type='hidden' name="word" value="${param.word}">

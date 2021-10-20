@@ -11,7 +11,7 @@
   <meta charset="utf-8">
    <script type="text/javascript">
      function detail(contentsno){
-       var url = "detail";
+       var url = "../../contents/detail";
        url += "?contentsno="+contentsno;
        url += "&col=${col}";
        url += "&word=${word}";
@@ -81,7 +81,7 @@
       name="word" value="${word}">
     </div>
     <button type="submit" class="btn btn-default" >검색</button>
-    <button type="button" class="btn btn-default" onclick="location.href='../admin/create'">등록</button>
+    <button type="button" class="btn btn-default" onclick="location.href='../contents/create'">등록</button>
   </form>
   
   <table class="table table-striped">

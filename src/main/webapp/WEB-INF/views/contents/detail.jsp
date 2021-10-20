@@ -9,7 +9,7 @@
 
 <script type="text/javascript">
 	function updateC() {
-		var url = "update";
+		var url = "../admin/contents/update";
 		url += "?contentsno=${dto.contentsno}";
 		url += "&col=${param.col}";
 		url += "&word=${param.word}";
@@ -19,7 +19,7 @@
 	}
 
 	function updateFile() {
-		var url = "updateFile";
+		var url = "../admin/contents/updateFile";
 		url += "?contentsno=${dto.contentsno}";
 		url += "&col=${param.col}";
 		url += "&word=${param.word}";
@@ -30,7 +30,7 @@
 	}
 	
 	function deleteC() {
-		var url = "delete";
+		var url = "../admin/contents/delete";
 		url += "?contentsno=${dto.contentsno}";
 		url += "&col=${param.col}";
 		url += "&word=${param.word}";
@@ -41,7 +41,7 @@
 	}
 	
 	function listC() {
-		var url = "list";
+		var url = "../admin/contents/list";
 		url += "?col=${param.col}";
 		url += "&word=${param.word}";
 		url += "&nowPage=${param.nowPage}";
@@ -50,11 +50,12 @@
 	}
 	
 	function mainlistC() {
-		var url = "mainlist";
+		var url = "../../contents/mainlist";
+		url += "/${dto.cateno}";
 		url += "?col=${param.col}";
 		url += "&word=${param.word}";
 		url += "&nowPage=${param.nowPage}";
-		
+				
 		location.href = url;
 	}
 </script>
@@ -67,8 +68,7 @@
  <table class="table table-bordered">
  <tr>
  	<td colspan="2" style="text-align: center">
- 		<img src="${root}/pstorage/${dto.filename}" 
- 		width="250px" height="250px" class="img-rounded" >
+ 		<img src="${root}/pstorage/${dto.filename}">
  	</td>
  </tr>
  <tr>
@@ -89,14 +89,19 @@
  </tr>
  
  </table>
- <div style="text-align: center">
+ <div class="row" style="text-align: center">
+  <button class="btn btn-default" onclick="mainlistC()">상품 목록</button>
+ </div>
+ 
+ <div class="row" style="text-align: center">
  <c:if test="${not empty sessionScope.id and sessionScope.grade == 'A'}">
+ <br><h4> 관리자 메뉴 </h4>
  <button class="btn btn-default" onclick="updateC()">상품 정보 수정</button>
  <button class="btn btn-default" onclick="updateFile()">사진수정</button>
  <button class="btn btn-default" onclick="deleteC()">상품 삭제</button>
  <button class="btn btn-default" onclick="listC()">상품 목록(관리자)</button>
+ <br><br>
  </c:if>
- <button class="btn btn-default" onclick="location.href='./mainlist/${dto.cateno }'">상품 목록</button>
  </div>
  
  <br>

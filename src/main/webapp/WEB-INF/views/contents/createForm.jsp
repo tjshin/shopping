@@ -45,7 +45,7 @@
 <div class="container">
 <h1 class="col-sm-offset-2 col-sm-10">상품 등록</h1>
 <form class="form-horizontal" 
-      action="/contents/create"
+      action="/admin/contents/create"
       method="post"
       enctype="multipart/form-data"
       onsubmit="return checkIn(this)">

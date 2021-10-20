@@ -31,7 +31,7 @@ public class ContentsController {
 	@Qualifier("com.study.contents.ContentsServiceImpl")
 	private ContentsService service;
 
-	@PostMapping("/contents/updateFile")
+	@PostMapping("/admin/contents/updateFile")
 	public String updateFile(MultipartFile filenameMF, String oldfile, int contentsno, HttpServletRequest request,
 			RedirectAttributes redirect) throws IOException {
 		String basePath = new ClassPathResource("/static/pstorage").getFile().getAbsolutePath();
@@ -58,16 +58,16 @@ public class ContentsController {
 		}
 	}
 
-	@GetMapping("/contents/updateFile")
+	@GetMapping(value = {"/admin/contents/updateFile", "/admin/contents/mainlist/updateFile"})
 	public String updateFileForm(int contentsno, String oldfile, Model model) {
 
 		model.addAttribute("contentsno", contentsno);
 		model.addAttribute("oldfile", oldfile);
 
-		return "/contents/updateFile";
+		return "/admin/contents/updateFile";
 	}
 
-	@RequestMapping(value = { "/contents/list", "/contents/mainlist/list" })
+	@RequestMapping(value = { "/admin/contents/list", "/admin/contents/mainlist/list" })
 	public String list(HttpServletRequest request) {
 		// 검색관련------------------------
 		String col = Utility.checkNull(request.getParameter("col"));
@@ -107,11 +107,11 @@ public class ContentsController {
 		request.setAttribute("word", word);
 		request.setAttribute("paging", paging);
 
-		return "/contents/list";
+		return "/admin/contents/list";
 
 	}
 
-	@PostMapping("/contents/update")
+	@PostMapping("/admin/contents/update")
 	public String update(ContentsDTO dto, HttpServletRequest request, RedirectAttributes redirect) throws IOException {
 		int cnt = service.update(dto);
 
@@ -125,17 +125,17 @@ public class ContentsController {
 		}
 	}
 
-	@GetMapping("/contents/update")
+	@GetMapping(value = {"/admin/contents/update", "/admin/contents/mainlist/update"})
 	public String update(int contentsno, Model model) {
 
 		ContentsDTO dto = service.detail(contentsno);
 
 		model.addAttribute("dto", dto);
 
-		return "/contents/update";
+		return "/admin/contents/update";
 	}
 
-	@PostMapping("/contents/create")
+	@PostMapping("/admin/contents/create")
 	public String create(ContentsDTO dto, HttpServletRequest request) throws IOException {
 		String upDir = new ClassPathResource("/static/pstorage").getFile().getAbsolutePath();
 
@@ -155,9 +155,9 @@ public class ContentsController {
 		}
 	}
 
-	@GetMapping("/admin/create")
+	@GetMapping("/admin/contents/create")
 	public String create() {
-		return "/contents/create";
+		return "/admin/contents/create";
 	}
 
 	@GetMapping(value = "/contents/getCategory", produces = "application/json;charset=UTF-8")
@@ -168,7 +168,7 @@ public class ContentsController {
 		return list;
 	}
 
-	@GetMapping("/contents/mainlist/{cateno}")
+	@GetMapping(value = {"/contents/mainlist/{cateno}", "/contents/mainlist/mainlist/{cateno}"})
 	public String mainlist(@PathVariable("cateno") int cateno, HttpServletRequest request, Model model) {
 		// 검색관련------------------------
 		String col = Utility.checkNull(request.getParameter("col"));
@@ -217,7 +217,7 @@ public class ContentsController {
 		return "/contents/mainlist";
 
 	}
-
+	
 	@GetMapping(value = { "/contents/detail", "/contents/mainlist/detail" })
 	public String detail(int contentsno, Model model) {
 
@@ -230,19 +230,13 @@ public class ContentsController {
 		return "/contents/detail";
 	}
 
-	@GetMapping("/contents/delete/{contentsno}")
-	public String delete(@PathVariable("contentsno") int contentsno) {
+	@GetMapping(value = {"/admin/contents/delete", "/admin/contents/mainlist/delete"})
+	public String delete(int contentsno) {
 
-		return "/contents/delete";
+		return "/admin/contents/delete";
 	}
 
-	@GetMapping("/contents/delete")
-	public String delete2(int contentsno) {
-
-		return "/contents/delete";
-	}
-
-	@PostMapping("/contents/delete")
+	@PostMapping("/admin/contents/delete")
 	public String delete(int contentsno, String oldfile, HttpServletRequest request, RedirectAttributes redirect)
 			throws IOException {
 

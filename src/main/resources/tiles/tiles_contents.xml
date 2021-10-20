@@ -4,19 +4,19 @@
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
  
 <tiles-definitions>
-    <definition name="/contents/create" extends="main"> 
+    <definition name="/admin/contents/create" extends="main"> 
             <put-attribute name="title" value="상품등록" ></put-attribute> 
             <put-attribute name="body" value="/WEB-INF/views/contents/createForm.jsp" /> 
     </definition> 
-    <definition name="/contents/list" extends="main"> 
+    <definition name="/admin/contents/list" extends="main"> 
             <put-attribute name="title" value="상품목록" ></put-attribute> 
             <put-attribute name="body" value="/WEB-INF/views/contents/list.jsp" /> 
     </definition> 
-    <definition name="/contents/update" extends="main"> 
+    <definition name="/admin/contents/update" extends="main"> 
             <put-attribute name="title" value="상품수정" ></put-attribute> 
             <put-attribute name="body" value="/WEB-INF/views/contents/updateForm.jsp" /> 
     </definition> 
-    <definition name="/contents/updateFile" extends="main"> 
+    <definition name="/admin/contents/updateFile" extends="main"> 
             <put-attribute name="title" value="사진수정" ></put-attribute> 
             <put-attribute name="body" value="/WEB-INF/views/contents/updateFileForm.jsp" /> 
     </definition>
@@ -28,7 +28,7 @@
             <put-attribute name="title" value="상품상세페이지" ></put-attribute> 
             <put-attribute name="body" value="/WEB-INF/views/contents/detail.jsp" /> 
     </definition> 
-    <definition name="/contents/delete" extends="main"> 
+    <definition name="/admin/contents/delete" extends="main"> 
             <put-attribute name="title" value="상품삭제" ></put-attribute> 
             <put-attribute name="body" value="/WEB-INF/views/contents/deleteForm.jsp" /> 
     </definition> 
