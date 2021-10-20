@@ -64,7 +64,7 @@ public class ContentsController {
 		return "/contents/updateFile";
 	}
 
-	@RequestMapping("/contents/list")
+	@RequestMapping(value = {"/contents/list", "/contents/mainlist/list"})
 	public String list(HttpServletRequest request) {
 		// 검색관련------------------------
 		String col = Utility.checkNull(request.getParameter("col"));
@@ -213,27 +213,18 @@ public class ContentsController {
 
 	}
 
-	@GetMapping("/contents/detail")
+	@GetMapping(value = {"/contents/detail", "/contents/mainlist/detail"})
 	public String detail(int contentsno, Model model) {
 
 		ContentsDTO dto = service.detail(contentsno);
 		String detail = dto.getDetail().replaceAll("\r\n", "<br>");
 		dto.setDetail(detail);
-		
+
 		model.addAttribute("dto", dto);
 
 		return "/contents/detail";
 	}
-	
-	@GetMapping("/contents/detail/{contentsno}")
-	public String detail2(@PathVariable("contentsno") int contentsno, Model model) {
-	    
-	   model.addAttribute("dto",service.detail(contentsno));
-	  
-	    return "/contents/detail";
-	}
-	
-			
+
 	@GetMapping("/contents/delete/{contentsno}")
 	public String delete(@PathVariable("contentsno") int contentsno) {
 
@@ -245,11 +236,10 @@ public class ContentsController {
 
 		Map map = new HashMap();
 		map.put("contentsno", contentsno);
-		
+
 		int cnt = 0;
-		
-			cnt = service.delete(contentsno);
-		
+
+		cnt = service.delete(contentsno);
 
 		if (cnt == 1) {
 			redirect.addAttribute("col", request.getParameter("col"));
