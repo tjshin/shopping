@@ -39,34 +39,34 @@
   
    <c:forEach var="dto" items="${list}"> 
    
-   <tr>
-    <td>${dto.contentsno}</td>
-    <td>
-    <img src="/pstorage/${dto.filename}"  class="img-rounded" width="100px" height="100px">
-    </td>
-    <td>
-    <a href="javascript:detail('${dto.contentsno}')">${dto.pname}</a>
-    <c:if test="${util:newImg(fn:substring(dto.rdate,0,10)) }">
-         <img src="/images/new.gif"> 
-    </c:if> 
+<!--    <tr> -->
+<%--     <td>${dto.contentsno}</td> --%>
+<!--     <td> -->
+<%--     <img src="/pstorage/${dto.filename}"  class="img-rounded" width="100px" height="100px"> --%>
+<!--     </td> -->
+<!--     <td> -->
+<%--     <a href="javascript:detail('${dto.contentsno}')">${dto.pname}</a> --%>
+<%--     <c:if test="${util:newImg(fn:substring(dto.rdate,0,10)) }"> --%>
+<!--          <img src="/images/new.gif">  -->
+<%--     </c:if>  --%>
     
-    </td>
-    <td>${dto.price}</td>
-    <td>${dto.rdate}</td>
-    <td>${dto.stock}</td>
-    <td> <a href="javascript:updateC('${dto.contentsno}')">
-          <span class="glyphicon glyphicon-edit"></span>
-        </a>
-        /
-        <a href="javascript:deleteC('${dto.contentsno}', '${dto.filename}')">
-          <span class="glyphicon glyphicon-trash"></span>
-        </a>
-        /
-        <a href="javascript:updateFile('${dto.contentsno}', '${dto.filename}')">
-          <span class="glyphicon glyphicon-picture"></span>
-        </a>     
-    </td>
-   </tr>
+<!--     </td> -->
+<%--     <td>${dto.price}</td> --%>
+<%--     <td>${dto.rdate}</td> --%>
+<%--     <td>${dto.stock}</td> --%>
+<%--     <td> <a href="javascript:updateC('${dto.contentsno}')"> --%>
+<!--           <span class="glyphicon glyphicon-edit"></span> -->
+<!--         </a> -->
+<!--         / -->
+<%--         <a href="javascript:deleteC('${dto.contentsno}', '${dto.filename}')"> --%>
+<!--           <span class="glyphicon glyphicon-trash"></span> -->
+<!--         </a> -->
+<!--         / -->
+<%--         <a href="javascript:updateFile('${dto.contentsno}', '${dto.filename}')"> --%>
+<!--           <span class="glyphicon glyphicon-picture"></span> -->
+<!--         </a>      -->
+<!--     </td> -->
+<!--    </tr> -->
    </c:forEach>
    </c:otherwise>
    </c:choose>

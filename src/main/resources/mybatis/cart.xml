@@ -9,7 +9,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="list" parameterType="String"
 		resultType="com.study.cart.JoinDTO">
 		select m.id, m.mname, m.tel, m.email, m.zipcode,
-		m.address1, m.address2, m.cartno, o.orderno,
+		m.address1, m.address2, o.cartno, o.orderno,
 		o.contentsno, o.odate, o.quantity, o.total,
 		o.payment, o.pname
 		from member m inner join cart c 
