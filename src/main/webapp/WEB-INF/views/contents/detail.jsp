@@ -90,9 +90,10 @@
  
  </table>
  <div class="row" style="text-align: center">
-  <button id='addOrdersBtn' class='btn btn-primary pull-center'>
-  장바구니 담기</button>
+<!--   <button id='addOrdersBtn' class='btn btn-primary pull-center'> -->
+<!--   장바구니 담기</button> -->
 <!--   <button class="btn btn-default" onclick=#>바로 구매</button> -->
+  <button class="btn btn-default" onclick=#>주문하기</button>
   <button class="btn btn-default" onclick="mainlistC()">상품 목록</button>
  </div>
  

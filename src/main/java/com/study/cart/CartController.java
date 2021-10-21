@@ -35,5 +35,10 @@ public class CartController {
 			return "/cart/list";
 		}
 	}
+	
+	@GetMapping("/cart/pay")
+	public String pay() {
+		return "/cart/pay";
+	}
 
 }

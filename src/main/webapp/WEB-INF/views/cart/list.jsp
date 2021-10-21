@@ -96,7 +96,7 @@
 		<!--     출처: https://cart.coupang.com/cartView.pang -->
 		<div class="order-buttons" style="text-align: center">
 			<button onclick="history.back()">계속 쇼핑하기</button>
-			<button onclick=#>구매하기</button>
+			<button onclick="location.href='./pay'">구매하기</button>
 		</div>
 	</div>
 </body>
