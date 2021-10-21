@@ -6,15 +6,18 @@ CREATE TABLE cart(
 
 drop table orders cascade constraints;
 
-select *
-		from member inner join cart 
-		on member.id = cart.id
-		inner join orders
-		on cart.id = orders.id
-		where member.id = 'user4';
+select m.id, m.mname, m.tel, m.email, m.zipcode,
+		m.address1, m.address2, o.cartno, o.orderno,
+		o.contentsno, o.odate, o.quantity, o.total,
+		o.payment, o.pname
+		from member m inner join cart c 
+		on m.id = c.id
+		inner join orders o
+		on c.id = o.id
+		where m.id = 'user2';
         
     
-insert into cart values(1, 'user4');
+insert into cart values(6, 'user6');
 
 
 
@@ -41,7 +44,7 @@ pname                          VARCHAR2(50)  NOT NULL,
 insert into orders(
 orderno, cartno, contentsno, odate, quantity, total, payment, id, mname, pname)
 values((select nvl(max(orderno),0)+1 from orders), null,5,sysdate,1,50000,'신용카드',
-'user4','홍길동','Ripped Skinny Jeans');
+'user6','홍길동','Ripped Skinny Jeans');
  
 insert into orders(
 orderno, cartno, contentsno, odate, quantity, total, payment, id, mname, pname)
@@ -53,7 +56,7 @@ delete from orders where orderno = 2;
 
 update orders
 set cartno = 1
-where orderno = '2';
+where orderno = 1;
 
  
 --(2) left outer join 문작성
