@@ -24,7 +24,7 @@ public class CartController {
 	public String list(HttpServletRequest request, HttpSession session) {
 
 		String id = (String) session.getAttribute("id");
-
+		
 		if (id == null) {
 			return "redirect:./login/";
 		} else {

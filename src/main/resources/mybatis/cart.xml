@@ -11,11 +11,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select m.id, m.mname, m.tel, m.email, m.zipcode,
 		m.address1, m.address2, o.cartno, o.orderno,
 		o.contentsno, o.odate, o.quantity, o.total,
-		o.payment, o.pname
+		o.payment, o.pname, contents.filename, contents.price
 		from member m inner join cart c 
 		on m.id = c.id
 		inner join orders o
 		on c.id = o.id
+		inner join contents
+		on o.contentsno = contents.contentsno
 		where m.id = #{id}
 	</select>
 

@@ -1,5 +1,7 @@
 package com.study.cart;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Data;
 
 @Data
@@ -20,5 +22,7 @@ public class JoinDTO {
 	private int total;
 	private String payment;
 	private String pname;
+	private String filename;
+	private int price;
 
 }

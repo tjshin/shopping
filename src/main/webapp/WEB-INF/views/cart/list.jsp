@@ -34,7 +34,7 @@
 				<tr>
 					<!--     출처: https://cart.coupang.com/cartView.pang -->
 					<!--     <th scope="col" class="all-select-event"><label><input title="모든 상품을 결제상품으로 설정" type="checkbox" checked="checked" class="all-deal-select"/><span>&nbsp;&nbsp;전체선택</span></label></th> -->
-					<!--     <th>상품이미지</th> -->
+					<th>상품이미지</th>
 					<th>상품명</th>
 					<th>가격</th>
 					<th>수량</th>
@@ -58,17 +58,17 @@
 								<!--     <input type="checkbox" title="이 상품을 결제상품으로 설정" checked="checked" value="16793228033" class="dealSelectChk"/> -->
 								<!--     </td> -->
 
-								<td>${dto.pname}</td>
-								<!--     <td> -->
-								<%--     <img src="/pstorage/${dto.filename}"  class="img-rounded" width="100px" height="100px"> --%>
-								<!--     </td> -->
-								<!--     <td> -->
-								<%--     <a href="javascript:detail('${dto.contentsno}')">${dto.pname}</a> --%>
 
-								<!--     </td> -->
-								<td>${dto.total}</td>
+								<td><img src="/pstorage/${dto.filename}"
+									class="img-rounded" width="100px" height="100px"></td>
+								<td>${dto.pname}</td>
+								<!-- 								    <td> -->
+								<%-- 								    <a href="javascript:detail('${dto.contentsno}')">${dto.pname}</a> --%>
+
+								<!-- 								    </td> -->
+								<td>${dto.price}</td>
 								<td>${dto.quantity}</td>
-								<td>${dto.total * dto.quantity}</td>
+								<td>${dto.total}</td>
 								<%--     <td> <a href="javascript:updateC('${dto.contentsno}')"> --%>
 								<!--           <span class="glyphicon glyphicon-edit"></span> -->
 								<!--         </a> -->
