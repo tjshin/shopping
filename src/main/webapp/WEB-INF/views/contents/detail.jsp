@@ -111,5 +111,33 @@
  <br>
  
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal"
+        aria-hidden="true">&times;</button>
+      <h4 class="modal-title" id="myModalLabel">REPLY MODAL</h4>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>내용</label> 
+        <textarea cols="10" rows="3" class="form-control" name='content'>New Reply!!!!</textarea> 
+      </div>      
+    </div>
+<div class="modal-footer">
+<button id='modalRegisterBtn' type="button" class="btn btn-primary">Register</button>
+<button id='modalCloseBtn' type="button" class="btn btn-default">Close</button>
+</div>          </div>
+  <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
 </body>
 </html>
