@@ -90,8 +90,7 @@
  
  </table>
  <div class="row" style="text-align: center">
-  <button id='addCartBtn'
-  class='btn btn-primary pull-center'>
+  <button id='addOrdersBtn' class='btn btn-primary pull-center'>
   장바구니 담기</button>
 <!--   <button class="btn btn-default" onclick=#>바로 구매</button> -->
   <button class="btn btn-default" onclick="mainlistC()">상품 목록</button>
@@ -120,13 +119,10 @@ aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal"
         aria-hidden="true">&times;</button>
-      <h4 class="modal-title" id="myModalLabel">REPLY MODAL</h4>
+      <h4 class="modal-title" id="myModalLabel">ORDER MODAL</h4>
     </div>
     <div class="modal-body">
-      <div class="form-group">
-        <label>내용</label> 
-        <textarea cols="10" rows="3" class="form-control" name='content'>New Reply!!!!</textarea> 
-      </div>      
+          <label>내용</label> 
     </div>
 <div class="modal-footer">
 <button id='modalRegisterBtn' type="button" class="btn btn-primary">Register</button>
@@ -137,6 +133,12 @@ aria-labelledby="myModalLabel" aria-hidden="true">
 <!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
+
+<script type="text/javascript" src="${root}/js/border.js">
+</script>
+<script type="text/javascript" src="${root}/js/orderprocess.js">"
+
+</script>
 
 
 </body>

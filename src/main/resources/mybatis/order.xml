@@ -15,5 +15,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{quantity}, #{total}, #{payment},
 		#{id}, #{mname}, #{pname});
 	</insert>
+	
+	<select id="detail" parameterType="int"
+		resultType="com.study.contents.ContentsDTO">
+		select contentsno, pname, price, filename, stock
+		from contents
+		where contentsno = #{contentsno}	
+	</select>
 
 </mapper>
