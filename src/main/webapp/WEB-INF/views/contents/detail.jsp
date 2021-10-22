@@ -100,9 +100,9 @@
  
  </table>
  <div class="row" style="text-align: center">
-<!--   <button id='addOrdersBtn' class='btn btn-primary pull-center'> -->
-<!--   장바구니 담기</button> -->
-<!--   <button class="btn btn-default" onclick=#>바로 구매</button> -->
+  <button id='addOrdersBtn' class='btn btn-primary pull-center'>
+  장바구니 담기</button>
+  <button class="btn btn-default" onclick=#>바로 구매</button>
   <button class="btn btn-default" onclick="order()">주문하기</button>
   <button class="btn btn-default" onclick="mainlistC()">상품 목록</button>
  </div>
@@ -133,11 +133,11 @@ aria-labelledby="myModalLabel" aria-hidden="true">
       <h4 class="modal-title" id="myModalLabel">ORDER MODAL</h4>
     </div>
     <div class="modal-body">
-          <label>내용</label> 
+          <label>장바구니에 담았습니다</label> 
     </div>
 <div class="modal-footer">
-<button id='modalRegisterBtn' type="button" class="btn btn-primary">Register</button>
-<button id='modalCloseBtn' type="button" class="btn btn-default">Close</button>
+<button id='modalRegisterBtn' type="button" class="btn btn-primary">장바구니 보러가기</button>
+<button id='modalCloseBtn' type="button" class="btn btn-default">계속 쇼핑하기</button>
 </div>          </div>
   <!-- /.modal-content -->
 </div>
