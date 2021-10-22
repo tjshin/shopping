@@ -22,5 +22,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from contents
 		where contentsno = #{contentsno}	
 	</select>
+	
+	<select id="readcartno" parameterType="String"
+		resultType="int">
+		select cartno
+		from cart
+		where id = #{id}	
+	</select>
+	
+	<select id="readmname" parameterType="String"
+		resultType="int">
+		select mname
+		from member
+		where id = #{id}	
+	</select>
+	
 
 </mapper>

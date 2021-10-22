@@ -58,6 +58,16 @@
 				
 		location.href = url;
 	}
+	
+	function order() {
+		var url = "../../orders/create";
+		url += "?contentsno=${dto.contentsno}";
+		url += "&col=${param.col}";
+		url += "&word=${param.word}";
+		url += "&nowPage=${param.nowPage}";
+
+		location.href = url;
+	}
 </script>
 
 </head>
@@ -93,7 +103,7 @@
 <!--   <button id='addOrdersBtn' class='btn btn-primary pull-center'> -->
 <!--   장바구니 담기</button> -->
 <!--   <button class="btn btn-default" onclick=#>바로 구매</button> -->
-  <button class="btn btn-default" onclick=#>주문하기</button>
+  <button class="btn btn-default" onclick="order()">주문하기</button>
   <button class="btn btn-default" onclick="mainlistC()">상품 목록</button>
  </div>
  

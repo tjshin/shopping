@@ -55,8 +55,8 @@ values((select nvl(max(orderno),0)+1 from orders), null,6,sysdate,1,50000,'신�
 delete from orders where orderno = 2;
 
 update orders
-set cartno = 1
-where orderno = 1;
+set cartno = 6
+where orderno = 7;
 
  
 --(2) left outer join 문작성

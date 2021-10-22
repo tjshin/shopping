@@ -8,4 +8,8 @@ public interface OrdersService {
 
 	int create(OrdersDTO dto);
 
+	int readcartno(String id);
+
+	String readmname(String id);
+
 }

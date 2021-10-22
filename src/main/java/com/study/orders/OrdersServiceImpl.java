@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.study.contents.ContentsDTO;
 
-@Service("com.study.order.OrdersServiceImpl")
+@Service("com.study.orders.OrdersServiceImpl")
 public class OrdersServiceImpl implements OrdersService {
 	
 	@Autowired
@@ -21,6 +21,18 @@ public class OrdersServiceImpl implements OrdersService {
 	public int create(OrdersDTO dto) {
 		// TODO Auto-generated method stub
 		return mapper.create(dto);
+	}
+
+	@Override
+	public int readcartno(String id) {
+		// TODO Auto-generated method stub
+		return mapper.readcartno(id);
+	}
+
+	@Override
+	public String readmname(String id) {
+		// TODO Auto-generated method stub
+		return mapper.readmname(id);
 	}
 
 }
