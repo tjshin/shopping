@@ -85,6 +85,7 @@
           <li><a href="#">Q&A</a></li>
         </ul>
       </li>
+      <li class="active"><a href="${root}/chatbot/naver_chatting">1:1문의(챗봇)</a></li>
     <li><a id="grade"><span class="glyphicon glyphicon-grain"></span> ${str}</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
