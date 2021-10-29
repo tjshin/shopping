@@ -10,11 +10,13 @@
 <title>1:1 문의 챗봇</title>
 <link href="/css/style.css" rel="Stylesheet" type="text/css">  <%--/static 폴더 기준 --%>
 
+<!-- 여기서부터 다른 템플릿에 합칠 경우 생략해야함(중복 에러) -->
 <script type="text/JavaScript"
           src="http://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<!-- 여기까지 다른 템플릿에 합칠 경우 생략해야함(중복 에러) -->
 
 <%-- WebSocket 관련 설정 --%>
 <script src="/js/sockjs.min.js"></script>  <%--/static 폴더 기준 --%>
