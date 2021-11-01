@@ -112,6 +112,120 @@ $("#to-sajik").on("click", function(e) {
 });
 
 var map = new naver.maps.Map('map', mapOptions);
+
+
+
+var markerLG = {
+    position: jamsil.destinationPoint(90, -50),
+    map: map,
+    icon: {
+        url: './images/map/emblem_LG.png',
+        size: new naver.maps.Size(64,41),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(32, 20)
+    }
+};
+var markerOB = {
+    position: jamsil.destinationPoint(90, 50),
+    map: map,
+    icon: {
+        url: './images/map/emblem_OB.png',
+        size: new naver.maps.Size(64,41),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(32, 20)
+    }
+};
+var markerWO = {
+    position: gocheok.destinationPoint(0, 100),
+    map: map,
+    icon: {
+        url: './images/map/emblem_WO.png',
+        size: new naver.maps.Size(64,41),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(32, 20)
+    }
+};
+var markerSK = {
+    position: incheon.destinationPoint(0, 100),
+    map: map,
+    icon: {
+        url: './images/map/emblem_SK.png',
+        size: new naver.maps.Size(64,41),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(32, 20)
+    }
+};
+var markerKT = {
+    position: suwon.destinationPoint(0, 100),
+    map: map,
+    icon: {
+        url: './images/map/emblem_KT.png',
+        size: new naver.maps.Size(64,41),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(32, 20)
+    }
+};
+var markerHH = {
+    position: daejeon.destinationPoint(0, 100),
+    map: map,
+    icon: {
+        url: './images/map/emblem_HH.png',
+        size: new naver.maps.Size(64,41),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(32, 20)
+    }
+};
+var markerHT = {
+    position: gwangju.destinationPoint(0, 100),
+    map: map,
+    icon: {
+        url: './images/map/emblem_HT.png',
+        size: new naver.maps.Size(64,41),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(32, 20)
+    }
+};
+var markerSS = {
+    position: daegu.destinationPoint(50, 50),
+    map: map,
+    icon: {
+        url: './images/map/emblem_SS.png',
+        size: new naver.maps.Size(64,41),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(32, 20)
+    }
+};
+var markerNC = {
+    position: changwon.destinationPoint(0, 100),
+    map: map,
+    icon: {
+        url: './images/map/emblem_NC.png',
+        size: new naver.maps.Size(64,41),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(32, 20)
+    }
+};
+var markerLT = {
+    position: sajik.destinationPoint(0, 100),
+    map: map,
+    icon: {
+        url: './images/map/emblem_LT.png',
+        size: new naver.maps.Size(64,41),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(32, 20)
+    }
+};
+
+var lg = new naver.maps.Marker(markerLG);
+var ob = new naver.maps.Marker(markerOB);
+var wo = new naver.maps.Marker(markerWO);
+var sk = new naver.maps.Marker(markerSK);
+var kt = new naver.maps.Marker(markerKT);
+var hh = new naver.maps.Marker(markerHH);
+var ht = new naver.maps.Marker(markerHT);
+var ss = new naver.maps.Marker(markerSS);
+var nc = new naver.maps.Marker(markerNC);
+var lt = new naver.maps.Marker(markerLT);
 </script>
 
 </body> 
