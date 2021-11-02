@@ -26,15 +26,17 @@ img {
 </head>
 <body> 
  
-<div class="container">
+<!-- <div class="container"> -->
 <!--     <p><a href="./contents/mainlist/1" >SHOP NOW</a></p> -->
 <!--     <img src="./images/jeans.jpg" alt="Jeans"> -->
     
-</div>
-<div id="wrap" class="section">
+<!-- </div> -->
+<article>
+<div id="wrap" class="section" style="width:90%; margin:0 auto;">
     <h2>구장별 지도 이동</h2>
     <p> 각 구장별 버튼을 누르면 해당 지역 주변으로 지도를 이동합니다</p>
-<div id="map" style="width:100%;height:600px;">
+  
+<div id="map" style="width:96%;height:600px; margin:0 auto;">  <!--  style="width:100%;height:600px;margin:0 auto; -->
 	<div class="buttons">
 		<input id="to-jamsil" type="button" value="잠실(LG/두산)" class="control-btn" />
 		<input id="to-gocheok" type="button" value="고척(키움)" class="control-btn" />
@@ -46,9 +48,12 @@ img {
 		<input id="to-changwon" type="button" value="창원(NC)" class="control-btn" />
 		<input id="to-sajik" type="button" value="사직(롯데)" class="control-btn" />
 	</div>
+	
 </div>
 <code id="snippet" class="snippet"></code>
 </div>
+
+
 <script id="code">
 var mapOptions = {
     center: new naver.maps.LatLng(37.51226, 127.07190),
@@ -228,5 +233,39 @@ var nc = new naver.maps.Marker(markerNC);
 var lt = new naver.maps.Marker(markerLT);
 </script>
 
+<script>
+var HOME_PATH = window.HOME_PATH || '.';
+
+var sikdang = new naver.maps.LatLng(37.510272311999096, 127.07965190429984),
+    
+    marker = new naver.maps.Marker({
+        map: map,
+        position: sikdang
+    });
+
+var contentString = [
+        '<div class="iw_inner">',
+        '   <h3>잠실고박사찰떡생고기</h3>',
+        '   <p>서울 송파구 백제고분로7길 8| 서울 송파구 잠실동 195-12<br />',        
+        '       02-413-1711 <br />',
+        '   </p>',
+        '</div>'
+    ].join('');
+
+var infowindow = new naver.maps.InfoWindow({
+    content: contentString
+});
+
+naver.maps.Event.addListener(marker, "click", function(e) {
+    if (infowindow.getMap()) {
+        infowindow.close();
+    } else {
+        infowindow.open(map, marker);
+    }
+});
+
+// infowindow.open(map, marker);
+</script>
+</article>
 </body> 
 </html>

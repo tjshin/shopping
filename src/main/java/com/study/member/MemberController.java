@@ -93,9 +93,12 @@ public class MemberController {
 	}
 
 	@PostMapping("/member/create")
-	public String create(MemberDTO dto) throws IOException {
+	public String create(MemberDTO dto) {
 
-		String upDir = new ClassPathResource("/static/member/storage").getFile().getAbsolutePath();
+//		String upDir = new ClassPathResource("/static/member/storage").getFile().getAbsolutePath();
+		
+		String upDir = Member.getUploadDir();
+		
 		String fname = Utility.saveFileSpring(dto.getFnameMF(), upDir);
 		int size = (int) dto.getFnameMF().getSize();
 		if (size > 0) {
@@ -241,10 +244,12 @@ public class MemberController {
 
 	@PostMapping("/member/updateFile")
 	public String updateFile(MultipartFile fnameMF, String oldfile, HttpSession session, HttpServletRequest request)
-			throws IOException {
+			{
 
-		String basePath = new ClassPathResource("/static/member/storage").getFile().getAbsolutePath();
+//		String basePath = new ClassPathResource("/static/member/storage").getFile().getAbsolutePath();
 
+		String basePath = Member.getUploadDir();
+		
 		if (oldfile != null && !oldfile.equals("member.jpg")) { // 원본파일 삭제
 			Utility.deleteFile(basePath, oldfile);
 		}

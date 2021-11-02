@@ -109,7 +109,7 @@
    <tr>
     <td>${dto.contentsno}</td>
     <td>
-    <img src="/pstorage/${dto.filename}"  class="img-rounded" width="100px" height="100px">
+    <img src="/contents/storage/${dto.filename}"  class="img-rounded" width="100px" height="100px">
     </td>
     <td>
     <a href="javascript:detail('${dto.contentsno}')">${dto.pname}</a>
