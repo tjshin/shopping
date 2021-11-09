@@ -16,6 +16,10 @@
   <h3><span class="glyphicon glyphicon-user"></span> 나의 정보</h3>
   <img class="img-rounded" src="/member/storage/${dto.fname}" style="width:280px">${dto.fname}
     <div class="caption">
+    <p>
+    <a href="/member/updateFile?oldfile=${dto.fname}">사진수정</a> 
+    <a href="/member/download?filename=${dto.fname}">다운로드</a>
+    </p>
     <p>ID:${dto.id}, 성명:${dto.mname}, 마일리지:9000원</p>
     <p>배송지:(${dto.zipcode })${dto.address1 }  ${dto.address2}</p>
   </div>

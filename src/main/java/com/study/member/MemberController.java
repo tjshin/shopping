@@ -273,7 +273,8 @@ public class MemberController {
 	public void download(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		// ServletContext ctx = request.getSession().getServletContext();
 		// 절대경로
-		String dir = new ClassPathResource("/static/member/storage").getFile().getAbsolutePath();
+		//String dir = new ClassPathResource("/static/member/storage").getFile().getAbsolutePath();
+		String dir = Member.getUploadDir();
 		String filename = request.getParameter("filename");
 		byte[] files = FileUtils.readFileToByteArray(new File(dir, filename));
 		response.setHeader("Content-disposition",
